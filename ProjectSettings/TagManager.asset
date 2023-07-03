@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - audioFlute
+  - Portal
+  - Portal2
+  - Terrain
   layers:
   - Default
   - TransparentFX
