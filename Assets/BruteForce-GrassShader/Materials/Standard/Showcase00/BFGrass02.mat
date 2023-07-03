@@ -2,20 +2,14 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 8
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BFGrass02
   m_Shader: {fileID: 4800000, guid: 7cd5d6fe2c6238e469561875c01946f3, type: 3}
-  m_ValidKeywords:
-  - USE_CS
-  - USE_RT
-  - USE_S
-  - USE_SC
-  m_InvalidKeywords:
-  - _RTEFFECT_ON
+  m_ShaderKeywords: USE_CS USE_RT USE_S USE_SC _RTEFFECT_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -85,7 +79,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Ints: []
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
@@ -100,7 +93,7 @@ Material:
     - _GlossyReflections: 1
     - _GrassCut: 0
     - _GrassSaturation: 2
-    - _GrassShading: 0.091
+    - _GrassShading: 0.16
     - _GrassThinness: 0.4
     - _GrassThinnessIntersection: 0.43
     - _LightIntensity: 1
@@ -136,7 +129,6 @@ Material:
     - _UseShadowCast: 1
     - _UseSuperStack: 0
     - _UseTP: 0
-    - _UseVP: 0
     - _UseVR: 0
     - _UseWC: 0
     - _WindForce: 0.22
@@ -154,4 +146,3 @@ Material:
     - _ProjectedShadowColor: {r: 0.41509432, g: 0.40195796, b: 0.17426129, a: 1}
     - _RimColor: {r: 0.638, g: 0.493299, b: 0.2894021, a: 1}
     - _SelfShadowColor: {r: 0.3026154, g: 0.46226418, b: 0, a: 1}
-  m_BuildTextureStacks: []

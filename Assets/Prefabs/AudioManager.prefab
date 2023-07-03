@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6105969686256101341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6105969686256101331}
+  - component: {fileID: 6105969686256101340}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6105969686256101331
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6105969686256101341}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 341.5, y: 192, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6105969686256101340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6105969686256101341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e511b204b9b94a348b5c5f397c181ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  master: {fileID: 24300002, guid: 976684768bc39d845b2527c92c517563, type: 2}
+  music: {fileID: 1850340486691172796, guid: 976684768bc39d845b2527c92c517563, type: 2}
+  sfx: {fileID: -2055595431274883621, guid: 976684768bc39d845b2527c92c517563, type: 2}
+  rain: {fileID: -9131993031003074646, guid: 976684768bc39d845b2527c92c517563, type: 2}
+  wind: {fileID: 8897275144297640070, guid: 976684768bc39d845b2527c92c517563, type: 2}
+  jump: {fileID: -7178137429376656666, guid: 976684768bc39d845b2527c92c517563, type: 2}
+  yellowTorus: {fileID: -8381979770970164710, guid: 976684768bc39d845b2527c92c517563, type: 2}
+  greenTorus: {fileID: -1966239184443336481, guid: 976684768bc39d845b2527c92c517563, type: 2}
+  pinkTorus: {fileID: 4893636601973771013, guid: 976684768bc39d845b2527c92c517563, type: 2}
+  win: {fileID: 7022552142907496638, guid: 976684768bc39d845b2527c92c517563, type: 2}
+  fog: {fileID: -1726449629822034487, guid: 976684768bc39d845b2527c92c517563, type: 2}

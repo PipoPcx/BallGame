@@ -2,18 +2,14 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 8
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BFGrassTerrain01x1000
   m_Shader: {fileID: 4800000, guid: 0108bd98254aa52449e692c4eb92def0, type: 3}
-  m_ValidKeywords:
-  - USE_RT
-  - USE_SC
-  m_InvalidKeywords:
-  - _RTEFFECT_ON
+  m_ShaderKeywords: USE_RT USE_SC _RTEFFECT_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -32,7 +28,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Control0:
-        m_Texture: {fileID: 2124573889250796400, guid: cdf92ef9090ca4845b94273d427201fd, type: 2}
+        m_Texture: {fileID: 6867013527580396489, guid: 7c6f68609f0fb5545a82b9fd2d4e7df1,
+          type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Control1:
@@ -40,7 +37,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Control2:
-        m_Texture: {fileID: -3973170717174270421, guid: 9ffdee09e9c0fa14282beaf12403978d, type: 2}
+        m_Texture: {fileID: -3973170717174270421, guid: 9ffdee09e9c0fa14282beaf12403978d,
+          type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -168,11 +166,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 1}
     - _SplatMap:
-        m_Texture: {fileID: -3973170717174270421, guid: 9ffdee09e9c0fa14282beaf12403978d, type: 2}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _TerrainHolesTexture:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: -3973170717174270421, guid: 9ffdee09e9c0fa14282beaf12403978d,
+          type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TextureA:
@@ -191,7 +186,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Ints: []
     m_Floats:
     - _BiPlanarSize: 1
     - _BiPlanarStrength: 0.75
@@ -211,7 +205,6 @@ Material:
     - _GrassShading: 0.076
     - _GrassThinness: 0.45
     - _GrassThinnessIntersection: 0.36
-    - _LightIntensity: 1
     - _Metallic: 0
     - _Metallic0: 0
     - _Metallic1: 0
@@ -280,4 +273,3 @@ Material:
     - _Splat5_STn: {r: 1, g: 1, b: 3.81, a: 1.06}
     - _Splat6_STn: {r: 1, g: 1, b: 1, a: 1.68}
     - _Splat7_STn: {r: 1, g: 1, b: 1, a: 1.68}
-  m_BuildTextureStacks: []

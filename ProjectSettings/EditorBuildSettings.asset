@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/BruteForce-GrassShader/Scenes/Standard/04TerrainSetup.unity
+    path: Assets/Scenes/04TerrainSetup.unity
     guid: 90acfa0ba0ef28f478799acc5c8f2b0a
   - enabled: 1
     path: Assets/Scenes/Escena1.unity

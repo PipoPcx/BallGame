@@ -8,7 +8,7 @@ Shader "BruteForceURP/InteractiveGrassMobileURP"
 	{
 		[Header(Tint Colors)]
 		[Space]
-		[MainColor]_Color("ColorTint",Color) = (0.5 ,0.5 ,0.5,1.0)
+		[MainColor] _Color("ColorTint",Color) = (0.5 ,0.5 ,0.5,1.0)
 		_GroundColor("GroundColorTint",Color) = (0.7 ,0.68 ,0.68,1.0)
 		_SelfShadowColor("ShadowColor",Color) = (0.41 ,0.41 ,0.36,1.0)
 		_ProjectedShadowColor("ProjectedShadowColor",Color) = (0.45 ,0.42 ,0.04,1.0)
@@ -148,7 +148,7 @@ Shader "BruteForceURP/InteractiveGrassMobileURP"
 			float2 hash2D2D(float2 s)
 			{
 				//magic numbers
-				return frac(sin(s)*4.5453);
+				return frac(sin(s) * 4.5453);
 			}
 
 			//stochastic sampling
@@ -224,7 +224,7 @@ Shader "BruteForceURP/InteractiveGrassMobileURP"
 				float distFade = distance(_WorldSpaceCameraPos, i.worldPos);
 				if (distFade > 0)
 				{
-					FadeStacks = lerp(1, 0, (distFade - _FadeDistanceStart)*(1 / max(_FadeDistanceEnd - _FadeDistanceStart, 0.0001)));//Clamp because people will start dividing by 0
+					FadeStacks = lerp(1, 0, (distFade - _FadeDistanceStart) * (1 / max(_FadeDistanceEnd - _FadeDistanceStart, 0.0001)));//Clamp because people will start dividing by 0
 				}
 				float2 uv = i.worldPos.xz - _Position.xz;
 				uv = uv / (_OrthographicCamSize * 2);
@@ -277,12 +277,12 @@ Shader "BruteForceURP/InteractiveGrassMobileURP"
 				NoGrass.r = saturate(NoGrass.r + ripplesG);
 #endif
 
-				half alpha = step(1 - ((col.x + grassPattern.x) * _GrassThinness)*((2 - i.color.r)*NoGrass.r*grassPattern.x), (1 - i.color.r)*(NoGrass.r*grassPattern.x)*_GrassThinness - dis.x * 5);
-				alpha = lerp(alpha, alpha + (grassPattern.x*NoGrass.r*(1 - i.color.r))*_GrassThinnessIntersection ,1 - NoGrass.r);
+				half alpha = step(1 - ((col.x + grassPattern.x) * _GrassThinness) * ((2 - i.color.r) * NoGrass.r * grassPattern.x), (1 - i.color.r) * (NoGrass.r * grassPattern.x) * _GrassThinness - dis.x * 5);
+				alpha = lerp(alpha, alpha + (grassPattern.x * NoGrass.r * (1 - i.color.r)) * _GrassThinnessIntersection ,1 - NoGrass.r);
 
 				if (i.color.r >= 0.01 && FadeStacks > 0.1)
 				{
-					clip(alpha*((ripples3 + 1)+ripples- (i.color.r)) -0.02);
+					clip(alpha * ((ripples3 + 1) + ripples - (i.color.r)) - 0.02);
 				}
 				if (_GrassCut > 0)
 				{
@@ -290,14 +290,14 @@ Shader "BruteForceURP/InteractiveGrassMobileURP"
 				}
 
 				_Color *= 2;
-				col.xyz = (pow(col, _GrassSaturation) * _GrassSaturation)*float3(_Color.x, _Color.y, _Color.z);
-				col.xyz *= saturate(lerp(_SelfShadowColor, 1, pow(i.color.x, 1.1)) + (_GrassShading  * (ripples * 1 + 1) - noise.x*dis.x * 2) + (1 - NoGrass.r) - noise.x*dis.x * 2);
-				col.xyz *= _Color * (ripples*-0.1 + 1);
-				col.xyz *= 1 - (ripples2*(1 - saturate(i.color.r - 0.7)));
+				col.xyz = (pow(col, _GrassSaturation) * _GrassSaturation) * float3(_Color.x, _Color.y, _Color.z);
+				col.xyz *= saturate(lerp(_SelfShadowColor, 1, pow(i.color.x, 1.1)) + (_GrassShading * (ripples * 1 + 1) - noise.x * dis.x * 2) + (1 - NoGrass.r) - noise.x * dis.x * 2);
+				col.xyz *= _Color * (ripples * -0.1 + 1);
+				col.xyz *= 1 - (ripples2 * (1 - saturate(i.color.r - 0.7)));
 
 				if (i.color.r <= 0.01)
 				{
-					colGround.xyz *= ((1 - NoGrass.r)*_GroundColor*_GroundColor * 2);
+					colGround.xyz *= ((1 - NoGrass.r) * _GroundColor * _GroundColor * 2);
 					col.xyz = lerp(col.xyz, colGround.xyz, 1 - NoGrass.r);
 				}
 				Light mainLight = GetMainLight(TransformWorldToShadowCoord(i.worldPos));
@@ -328,7 +328,7 @@ Shader "BruteForceURP/InteractiveGrassMobileURP"
 			}
 				ENDHLSL
 		}
-		
+
 		// SHADOW CASTING PASS, this will redraw geometry so keep this pass disabled if you want to save performance
 		// Keep it if you want depth for post process or if you're using deferred rendering
 		Pass{
@@ -427,7 +427,7 @@ Shader "BruteForceURP/InteractiveGrassMobileURP"
 				float dist = distance(_WorldSpaceCameraPos, i.worldPos);
 				if (dist > 0)
 				{
-					FadeStacks = lerp(1, 0, (dist - _FadeDistanceStart)*(1 / max(_FadeDistanceEnd - _FadeDistanceStart, 0.0001)));//Clamp because people will start dividing by 0
+					FadeStacks = lerp(1, 0, (dist - _FadeDistanceStart) * (1 / max(_FadeDistanceEnd - _FadeDistanceStart, 0.0001)));//Clamp because people will start dividing by 0
 				}
 				float2 uv = i.worldPos.xz - _Position.xz;
 				uv = uv / (_OrthographicCamSize * 2);
@@ -475,7 +475,7 @@ Shader "BruteForceURP/InteractiveGrassMobileURP"
 
 				if (i.color.r >= 0.01 && FadeStacks > 0.1)
 				{
-					clip(alpha*((ripples3 + 1) + ripples - (i.color.r)) - 0.02);
+					clip(alpha * ((ripples3 + 1) + ripples - (i.color.r)) - 0.02);
 				}
 				if (_GrassCut > 0)
 				{
@@ -488,6 +488,179 @@ Shader "BruteForceURP/InteractiveGrassMobileURP"
 			}
 				ENDHLSL
 		}
+
+
+			// DepthNormals PASS
+			Pass{
+					Tags {"LightMode" = "DepthNormals" "RenderPipeline" = "UniversalPipeline" }
+
+				HLSLPROGRAM
+				#pragma vertex vert
+				#pragma fragment frag
+				#pragma shader_feature USE_RT
+				#pragma shader_feature USE_WC
+				#pragma shader_feature USE_TP
+				#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+
+				float3 _LightDirection;
+				float3 _LightPosition;
+
+			struct appdata
+			{
+				float4 vertex : POSITION;
+				float2 uv : TEXCOORD0;
+				half1 color : COLOR;
+				float4 normal : NORMAL;
+			};
+
+			struct v2f
+			{
+				float3 worldPos : TEXCOORD2;
+				float2 uv : TEXCOORD0;
+				float4 pos : SV_POSITION;
+				half1 color : COLOR;
+				float3 normal : TEXCOORD3;
+			};
+
+			// Render Texture Effects //
+			uniform Texture2D _GlobalEffectRT;
+			uniform float3 _Position;
+			uniform float _OrthographicCamSize;
+			uniform float _HasRT;
+
+			Texture2D _MainTex;
+			Texture2D _NoGrassTex;
+			float4 _MainTex_ST;
+			Texture2D _Distortion;
+			sampler2D _GrassTex;
+			Texture2D _Noise;
+			Texture2D _GroundTex;
+			float _TilingN1;
+			float _TilingN2, _WindForce;
+			float4 _Color, _SelfShadowColor, _GroundColor;
+			float _TilingN3;
+			float _WindMovement;
+			half _GrassThinness, _GrassShading, _GrassThinnessIntersection;
+			half _NoisePower, _GrassSaturation, _FadeDistanceStart, _FadeDistanceEnd, _GrassCut, _WorldScale, _WorldRotation;
+
+			SamplerState my_linear_repeat_sampler;
+			SamplerState my_linear_clamp_sampler;
+
+	#define UnityObjectToWorld(o) mul(unity_ObjectToWorld, float4(o.xyz,1.0))
+			v2f vert(appdata v)
+			{
+				v2f o;
+				UNITY_SETUP_INSTANCE_ID(v);
+				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
+	#ifdef USE_VR
+				UNITY_TRANSFER_INSTANCE_ID(v, o);
+	#endif
+				VertexPositionInputs vertexInput = GetVertexPositionInputs(v.vertex.xyz);
+
+				o.pos = GetVertexPositionInputs(v.vertex).positionCS;
+				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+				o.color = v.color;
+				o.worldPos = UnityObjectToWorld(v.vertex);
+				o.normal = v.normal;
+				return o;
+			}
+
+				half4 frag(v2f i) : SV_Target
+				{
+					float dist = 1;
+
+				float2 mainUV;
+				//Setup Coordinate Space
+	#ifdef USE_WC
+				mainUV = i.worldPos.xz / max(_WorldScale, 0.001);
+
+				float rotationAngle = _WorldRotation * 3.14159265359f / 180.0;
+				float sina, cosa;
+				sincos(rotationAngle, sina, cosa);
+				float2x2 m = float2x2(cosa, -sina, sina, cosa);
+				mainUV = mul(m, mainUV.xy);
+	#else
+				mainUV = i.uv;
+	#endif
+
+	#ifdef USE_PR
+					dist = clamp(lerp(0, 1, (distance(_WorldSpaceCameraPos, i.worldPos) - _ProceduralDistance) / max(_ProceduralStrength,0.05)), 0, 1);
+	#endif
+					half FadeStacks = 1;
+					float distFade = distance(_WorldSpaceCameraPos, i.worldPos);
+					if (distFade > 0)
+					{
+						FadeStacks = lerp(1, 0, (distFade - _FadeDistanceStart) * (1 / max(_FadeDistanceEnd - _FadeDistanceStart, 0.0001)));//Clamp because people will start dividing by 0
+					}
+					float2 uv = i.worldPos.xz - _Position.xz;
+					uv = uv / (_OrthographicCamSize * 2);
+					uv += 0.5;
+
+					float bRipple = 1;
+	#ifdef USE_RT
+					if (_HasRT)
+					{
+						bRipple = 1 - clamp(_GlobalEffectRT.Sample(my_linear_clamp_sampler, uv).b * 5, 0, 2);
+					}
+	#endif
+					float2 dis = _Distortion.Sample(my_linear_repeat_sampler, mainUV * _TilingN3 + _Time.xx * 3 * _WindMovement);
+					float displacementStrengh = 0.6 * (((sin(_Time.y + dis * 5) + sin(_Time.y * 0.5 + 1.051)) / 5.0) + 0.15 * dis) * bRipple; //hmm math
+					dis = dis * displacementStrengh * (i.color.r * 1.3) * _WindForce * bRipple;
+
+					float ripples = 0.25;
+					float ripples2 = 0;
+					float ripples3 = 0;
+					float ripplesG = 0;
+	#ifdef USE_RT
+					if (_HasRT)
+					{
+	#ifdef USE_TP
+						float3 rippleMain = _GlobalEffectRT.Sample(my_linear_clamp_sampler, float2((i.uv.x / _MainTex_ST.x) - _MainTex_ST.z, (i.uv.y / _MainTex_ST.y) - _MainTex_ST.w) + dis.xy * 0.04);
+	#else
+						float3 rippleMain = _GlobalEffectRT.Sample(my_linear_clamp_sampler, uv + dis.xy * 0.04);
+	#endif
+						ripples = (0.25 - rippleMain.z);
+						ripples2 = (rippleMain.x);
+						ripplesG = (0 - rippleMain.y);
+						ripples3 = (0 - ripples2) * ripples2;
+					}
+	#endif
+	#ifdef USE_PR
+					float3 grassPattern = lerp(tex2D(_GrassTex, mainUV * _TilingN1 + dis.xy), tex2DStochastic(_GrassTex, mainUV * _TilingN1 + dis.xy), dist);
+	#else
+					float3 grassPattern = tex2D(_GrassTex, mainUV * _TilingN1 + dis.xy);
+	#endif
+					half4 col = _MainTex.Sample(my_linear_repeat_sampler, mainUV + dis.xy * 0.09);
+					half4 colGround = _GroundTex.Sample(my_linear_repeat_sampler, mainUV + dis.xy * 0.05);
+
+					float3 noise = _Noise.Sample(my_linear_repeat_sampler, mainUV * _TilingN2 + dis.xy) * _NoisePower;
+
+	#ifdef USE_VP
+					half3 NoGrass = i.color.g;
+					NoGrass.r = saturate(NoGrass.r + ripplesG);
+	#else
+					half3 NoGrass = _NoGrassTex.Sample(my_linear_repeat_sampler, mainUV + dis.xy * 0.05);
+					NoGrass.r = saturate(NoGrass.r + ripplesG);
+	#endif
+
+					half alpha = step(1 - ((col.x + grassPattern.x) * _GrassThinness) * ((2 - i.color.r) * NoGrass.r * grassPattern.x), (1 - i.color.r) * (NoGrass.r * grassPattern.x) * _GrassThinness - dis.x * 5);
+					alpha = lerp(alpha, alpha + (grassPattern.x * NoGrass.r * (1 - i.color.r)) * _GrassThinnessIntersection ,1 - NoGrass.r);
+
+					if (i.color.r >= 0.01 && FadeStacks > 0.1)
+					{
+						clip(alpha * ((ripples3 + 1) + ripples - (i.color.r)) - 0.02);
+					}
+					if (_GrassCut > 0)
+					{
+						clip(alpha / max(_GrassCut, 0.001) - 0.02);
+					}
+
+					return col;
+				}
+					ENDHLSL
+			}
+
+
 
 		} //Fallback "VertexLit"
 }
